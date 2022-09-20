@@ -4,13 +4,14 @@ import "leaflet-routing-machine";
 import {useSelector} from "react-redux";
 import {AppSelector} from "../../store/app/app.selector";
 
+
 const CreateRoutingLayer = () => {
-    const {currentRouting} = useSelector(AppSelector)
-    return L.Routing.control({
-        waypoints: currentRouting?.map(point=> L.latLng(point.point)),
+    const {currentApplication} = useSelector(AppSelector)
+    const layers = L.Routing.control({
+        waypoints: currentApplication?.currentRouting.map(point => L.latLng(point.point)),
         autoRoute: true,
-        addWaypoints: false,
-        fitSelectedRoutes: false,
+        addWaypoints: true,
+        fitSelectedRoutes: true,
         show: false,
         lineOptions: {
             extendToWaypoints: false,
@@ -18,6 +19,8 @@ const CreateRoutingLayer = () => {
             styles: [{color: "#6FA1EC", weight: 4}]
         }
     })
+    console.log(layers);
+    return layers
 }
 export const RoutingLayer = createControlComponent(CreateRoutingLayer)
 

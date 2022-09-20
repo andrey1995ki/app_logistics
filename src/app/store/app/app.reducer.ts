@@ -1,38 +1,52 @@
 import {AppActions, AppInitialState} from "./app.model";
 
-const prefix = "MAP_DATA"
+const prefix = "APP_DATA"
 
 export const LOADING_MAP = `${prefix}/LOADING_MAP`
-export const SET_ROUTING = `${prefix}/SET_ROUTING`
+export const LOADING_APP = `${prefix}/LOADING_APP`
+export const SET_APPLICATIONS = `${prefix}/SET_APPLICATIONS`
+export const ASYNC_SET_APPLICATIONS = `${prefix}/ASYNC_SET_APPLICATIONS`
+export const SET_CURRENT_APP = `${prefix}/SET_CURRENT_APP`
+export const ASYNC_SET_CURRENT_APP = `${prefix}/ASYNC_SET_CURRENT_APP`
+export const ASYNC_CREATED_APP = `${prefix}/ASYNC_CREATED_APP`
+export const ASYNC_UPDATE_ROUTING = `${prefix}/ASYNC_UPDATE_ROUTING`
 
-export const initialState:AppInitialState = {
+export const initialState: AppInitialState = {
     initialCoordinates: [55.7198, 37.6762],
-    loading: false,
-    currentRouting: [
-        {
-            point: [55.7198, 37.6762],
-            title: 'ТОчка старта',
-            description: 'Начальная точка'
-        },
-        {
-            point: [55.7198, 37.8763],
-            title: 'Конечная точка',
-            description: 'конечная'
-        }
-]
+    loadingMap: false,
+    loadingApp: false,
+    applications: [],
+    currentApplication: undefined,
 }
 
-export const AppReducer = (state = initialState, action:AppActions): AppInitialState =>{
-    switch (action.type){
-        case SET_ROUTING:
+export const AppReducer = (state = initialState, action: AppActions): AppInitialState => {
+    switch (action.type) {
+        case SET_APPLICATIONS:
             return {
                 ...state,
-                currentRouting: action.currentRouting
+                loadingApp: false,
+                applications: action.applications
             }
         case LOADING_MAP:
             return {
                 ...state,
-                loading: action.loading
+                loadingMap: action.loadingMap
+            }
+        case LOADING_APP:
+            return {
+                ...state,
+                loadingApp: action.loadingApp
+            }
+        case SET_CURRENT_APP:
+            return {
+                ...state,
+                loadingMap: false,
+                currentApplication: action.applicationId ? {
+                        currentId: action.applicationId,
+                        currentRouting: state.applications.filter(app => app.id === action.applicationId)[0].routing
+
+                    }
+                    : undefined
             }
         default:
             return state

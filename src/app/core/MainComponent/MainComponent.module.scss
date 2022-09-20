@@ -4,6 +4,7 @@
 }
 .ContentBlock{
   height: 93vh;
+  background-color: white;
 }
 .RowBlock{
   @extend .ContentBlock
@@ -17,4 +18,8 @@
   display: inline-block;
   vertical-align: middle;
   border-top: 0;
+}
+.ColBlock{
+  overflow-y: auto;
+  max-height: 93vh;
 }
