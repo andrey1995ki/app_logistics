@@ -9,7 +9,7 @@ export const Splitter: FC<SplitterProps> = memo(({rowRef, setSize}) => {
         // @ts-ignore
         let windowSize = rowRef.current.offsetWidth
         const mouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-            let appSize = Math.floor(event.screenX * 100 / windowSize)
+            let appSize = Math.floor(event.clientX * 100 / windowSize)
             let mapSize = 99 - appSize
             setSize({app: `${appSize}%`, map: `${mapSize}%`})
         }
