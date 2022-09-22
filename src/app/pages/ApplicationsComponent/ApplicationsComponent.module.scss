@@ -1,0 +1,39 @@
+.ApplicationBlock {
+  padding: 0 10px;
+}
+
+.CurrentItem {
+  color: #1890ff;
+}
+
+.ContentBlock {
+  transition-property: all;
+  transition-duration: 4s;
+  transition-delay: 2s;
+}
+
+.ChangeAddressField {
+  width: 100%;
+}
+
+.SceletonBlock {
+  padding: 12px
+}
+
+.SceletonDivider {
+  padding: 0;
+}
+
+.CurrentItemTitle {
+  margin-bottom: 4px;
+  color: rgba(0, 0, 0, .85);
+  font-size: 14px;
+  line-height: 1.5715;
+}
+
+.CurrentItemTitleActive {
+  margin-bottom: 4px;
+  color: #1890ff;
+  font-size: 14px;
+  line-height: 1.5715;
+}
