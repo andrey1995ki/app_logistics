@@ -7,35 +7,35 @@ export const instance = axios.create({
 
 
 export const ApplicationsApi = {
-    getApplications(){
+    getApplications() {
         return instance
             .get('applications')
     },
-    addApplications(applicationsDate:string,
-                    title:string,
-                    description:string){
+    addApplications(applicationsDate: string,
+                    title: string,
+                    description: string) {
         return instance
-            .post('applications',{
+            .post('applications', {
                 applicationsDate,
                 title,
                 description
             })
     },
-    addRouting(id:string,point:LatLngExpression, description:string,address:string){
+    addRouting(id: string, point: LatLngExpression, description: string, address: string) {
         return instance
-            .post(`applications/${id}/routing`,{
+            .post(`applications/${id}/routing`, {
                 point,
                 description,
                 address
             })
     },
-    updateRouting(appId:string,routingId:string,point:LatLngExpression,address:string){
+    updateRouting(appId: string, routingId: string, point: LatLngExpression, address: string) {
         return instance
             .put(`applications/${appId}/routing/${routingId}`,
                 {
                     point,
                     address
                 }
-                )
+            )
     }
 }

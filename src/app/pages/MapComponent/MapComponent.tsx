@@ -8,10 +8,8 @@ import {AppSelector} from "../../store/app/app.selector";
 
 export const MapComponent: FC = memo(() => {
     const {loadingMap, initialCoordinates, currentApplication} = useSelector(AppSelector)
-    console.log(loadingMap, currentApplication);
     const getRouting = () => {
         if (currentApplication && !loadingMap) {
-
             return (
                 <>
                     <RoutingLayer/>

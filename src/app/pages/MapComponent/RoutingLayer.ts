@@ -7,7 +7,7 @@ import {AppSelector} from "../../store/app/app.selector";
 
 const CreateRoutingLayer = () => {
     const {currentApplication} = useSelector(AppSelector)
-    const layers = L.Routing.control({
+    return L.Routing.control({
         waypoints: currentApplication?.currentRouting.map(point => L.latLng(point.point)),
         autoRoute: true,
         addWaypoints: true,
@@ -19,8 +19,6 @@ const CreateRoutingLayer = () => {
             styles: [{color: "#6FA1EC", weight: 4}]
         }
     })
-    console.log(layers);
-    return layers
 }
 export const RoutingLayer = createControlComponent(CreateRoutingLayer)
 

@@ -1,6 +1,6 @@
 import React, {FC, memo} from 'react';
-import style from '../MainComponent.module.scss'
-import {SplitterProps} from "../MainComponent.model";
+import style from '../ContentComponent.module.scss'
+import {SplitterProps} from "../ContentComponent.model";
 
 const {DividerBlock} = style
 

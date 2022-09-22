@@ -11,7 +11,6 @@ export const setAddressList = (addressList: undefined | Array<AddressList>): Set
     type: SET_ADDRESS,
     addressList
 })
-export const AsyncSetAddressList = (address: string): AsyncSetAddress => ({type: ASYNC_SET_ADDRESS, address})
 
 export function* getAddressList(payload: AsyncSetAddress) {
     yield put(loadingAddressList(true))

@@ -11,9 +11,9 @@ export const instance = axios.create({
 
 
 export const AddressApi = {
-    getAddress(address:string){
+    getAddress(address: string) {
         return instance
-            .post('suggest/address',{
+            .post('suggest/address', {
                 query: address
             })
     }

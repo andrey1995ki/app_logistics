@@ -12,13 +12,13 @@ import "moment/locale/ru";
 moment.locale("ru");
 
 function App() {
-  return (
-      <Provider store={store}>
-        <ConfigProvider locale={ru}>
-          <MainComponent/>
-        </ConfigProvider>
-      </Provider>
-  );
+    return (
+        <Provider store={store}>
+            <ConfigProvider locale={ru}>
+                <MainComponent/>
+            </ConfigProvider>
+        </Provider>
+    );
 }
 
 export default App;
